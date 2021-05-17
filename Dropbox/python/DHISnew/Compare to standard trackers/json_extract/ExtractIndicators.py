@@ -137,7 +137,7 @@ class main:
     def extractPIGroup(self):
         uids = pd.read_csv('OPD Final PIs V2.2.2.csv')
         listofUuids = list(uids['programIndicators.id'].unique())
-        f4 = open('Part 3.2_MER PIs and PI groups.json')  # open the json file
+        f4 = open('Part 3.1d_Infolink PIs & PI groups.json')  # open the json file
         data4 = json.load(f4)  # load as json
         f4list = []
         # Removing irrelevant PI Groups
@@ -149,7 +149,7 @@ class main:
 
         neededPIs = []
         individualPIsCreated = []
-        extracted = []
+
         n = 0
         for cleanedPIGroup in f4list:
             print(n)
@@ -172,14 +172,42 @@ class main:
                         individualPIsCreated.append(
                             [d for d in f4list[n]['programIndicators'] if d['id'] in listofUuids])
             n = n + 1
-        jsonready = {"programIndicatorGroups": neededPIs}
-        with open('programIndicatorGroups_MER.json', 'w') as fp:
+
+        programIndicatorGroups_notin = []
+        for k in neededPIs:
+            programIndicatorGroups_notin.append(k['id'])
+        programIndicatorGroups_notin_list = []
+
+        n = 0
+        f4 = open('Part 3.1d_Infolink PIs & PI groups.json')  # open the json file
+        data4 = json.load(f4)  # load as json
+        for a1 in data4['programIndicatorGroups']:
+            print(n)
+            if a1['id'] not in programIndicatorGroups_notin:
+                programIndicatorGroups_notin_list.append(
+                        {
+                            "access": a1['access'],
+                            "externalAccess": a1['externalAccess'],
+                            "favorite": a1['favorite'],
+                            "id": a1['id'],
+                            "name": a1['name'],
+                            "programIndicators": [],
+                            "publicAccess": a1['publicAccess']
+                        }
+                )
+
+            n = n + 1
+        print(neededPIs)
+        print(programIndicatorGroups_notin_list)
+        newlist = neededPIs + programIndicatorGroups_notin_list
+        jsonready = {"programIndicatorGroups": newlist}
+        with open('programIndicatorGroups_Infolink.json', 'w') as fp:
             json.dump(jsonready, fp)
 
     def extractIndGroup(self):
         uids = pd.read_csv('OPD Final Indicators V2.2.2.csv')
         listofUuids = list(uids['Column1.id'].unique())
-        f4 = open('Part 4.2_MER INDs and IND Groups.json')  # open the json file
+        f4 = open('Part 4.1b_Infolink INDs and IND groups.json')  # open the json file
         data4 = json.load(f4)  # load as json
         f4list = []
         #Removing irrelevant PI Groups
@@ -214,8 +242,33 @@ class main:
                             individualPIsCreated.append(
                                 [d for d in f4list[n]['indicators'] if d['id'] in listofUuids])
             n = n + 1
-        jsonready = {"indicatorGroups": neededPIs}
-        with open('IndicatorGroups_MER.json', 'w') as fp:
+        programIndicatorGroups_notin = []
+        for k in neededPIs:
+            programIndicatorGroups_notin.append(k['id'])
+        programIndicatorGroups_notin_list = []
+
+        n = 0
+        for a1 in data4['indicatorGroups']:
+            print(n)
+            if a1['id'] not in programIndicatorGroups_notin:
+                programIndicatorGroups_notin_list.append(
+                    {
+                        "access": a1['access'],
+                        "externalAccess": a1['externalAccess'],
+                        "favorite": a1['favorite'],
+                        "id": a1['id'],
+                        "name": a1['name'],
+                        "indicators": [],
+                        "publicAccess": a1['publicAccess']
+                    }
+                )
+
+            n = n + 1
+        print(neededPIs)
+        print(programIndicatorGroups_notin_list)
+        newlist = neededPIs + programIndicatorGroups_notin_list
+        jsonready = {"indicatorGroups": newlist}
+        with open('IndicatorGroups_Infolink.json', 'w') as fp:
             json.dump(jsonready, fp)
 
 
@@ -223,5 +276,5 @@ if __name__ == "__main__":
     push = main()
     # push.extractPI()
     # push.extractPIGroup()
-    # push.extractIndGroup()
-    push.extractInd()
+    push.extractIndGroup()
+    #push.extractInd()
