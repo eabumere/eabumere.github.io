@@ -1,0 +1,75 @@
+<merge     xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/white_grey_border_bottom">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/profileToolbar"
+            android:background="@drawable/radialbackground2">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <!--                    android:src="@drawable/asset_tiny_icon"-->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/asset_tiny_icon"
+                    android:layout_marginLeft="0dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/profileName"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_action_arrow_white"
+                    android:layout_marginLeft="5dp"
+
+                    android:layout_centerVertical="true"
+                    android:id="@+id/backarrow_new"
+                    />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:padding="25dp"
+
+                    >
+
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/subImage"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/subImage"
+                        android:id="@+id/des"
+                        android:text=""
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"/>
+
+                </RelativeLayout>
+
+
+
+                <ImageView android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/profileMenu"
+                    android:src="@drawable/ic_slabs"/>
+<!--                android:layout_marginEnd="2dp"-->
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</merge>

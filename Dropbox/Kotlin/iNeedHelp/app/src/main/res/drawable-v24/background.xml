@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/white" />
+
+
+    <item
+
+        android:bottom="64dp"
+
+        >
+
+        <bitmap android:src="@drawable/orange_page_logo_new"
+            android:gravity="center" />
+
+    </item>
+    <item
+        android:bottom="16dp"
+
+        >
+
+        <bitmap android:src="@drawable/power_fhi"
+            android:gravity="bottom|center_horizontal" />
+
+    </item>
+
+
+
+</layer-list>

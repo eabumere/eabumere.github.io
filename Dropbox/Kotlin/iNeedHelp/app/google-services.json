@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "283891742875",
+    "project_id": "ineedhelp-be233",
+    "storage_bucket": "ineedhelp-be233.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283891742875:android:eb5dda7ddcd476a2766e3e",
+        "android_client_info": {
+          "package_name": "com.example.ineedhelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283891742875-pvhoa3ph696vpp49jgl76g91grqe562t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsDwLwnkRJ-BN7TO63JDovT7ISGI6WvXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283891742875-pvhoa3ph696vpp49jgl76g91grqe562t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
